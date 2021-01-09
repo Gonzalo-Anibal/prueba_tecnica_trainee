@@ -22,8 +22,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  database: prueba_tecnica_trainee_development
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: garage_labs
+  pool: 5
+  username: batman
+  password: robin
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -56,8 +61,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: prueba_tecnica_trainee_test
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: garage_labs
+  pool: 5
+  username: batman
+  password: robin
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +90,6 @@ test:
 #
 production:
   <<: *default
-  database: prueba_tecnica_trainee_production
-  username: prueba_tecnica_trainee
-  password: <%= ENV['PRUEBA_TECNICA_TRAINEE_DATABASE_PASSWORD'] %>
+  database: garage_labs
+  username: batman
+  password: <%= ENV['robin'] %>
